@@ -10,6 +10,8 @@ The [code-snapshots](/code-snapshots/) folder contains multiple code snapshots p
 
 The [attachments](/attachments/) folder contains lecture-specific attachments which I reference in some of the course lectures.
 
+The [code-personal](/code-personal/) folder contains all personal work, attempts, examples from the course.
+
 ## Using Code Snapshots
 
 Code snapshots are complete Angular projects, provided for you to compare your code to mine. You will often find multiple snapshots for every course section, to reflect **different project states at different points of time**.
