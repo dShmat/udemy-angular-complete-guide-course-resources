@@ -17,4 +17,9 @@ export class UserComponent {
   get imagePath() {
     return 'assets/users/' + this.selectedUser.avatar;
   }
+
+  onSelectUser() {
+    const RANDOM_INDEX = Math.floor(Math.random() * DUMMY_USERS.length);
+    this.selectedUser = DUMMY_USERS[RANDOM_INDEX];
+  }
 }
