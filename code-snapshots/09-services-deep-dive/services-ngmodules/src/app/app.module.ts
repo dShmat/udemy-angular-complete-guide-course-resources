@@ -14,15 +14,18 @@ export const TasksServiceToken = new InjectionToken<TasksService>(
 );
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    TasksComponent,
-    TasksListComponent,
-    TaskItemComponent,
-    NewTaskComponent,
-  ],
-  imports: [BrowserModule, FormsModule],
-  bootstrap: [AppComponent],
-  providers: [{ provide: TasksServiceToken, useClass: TasksService }],
+    declarations: [
+        AppComponent,
+        TasksComponent,
+        TasksListComponent,
+        TaskItemComponent,
+        NewTaskComponent,
+    ],
+    imports: [BrowserModule, FormsModule],
+    bootstrap: [AppComponent],
+    providers: [{provide: TasksServiceToken, useClass: TasksService}],
+    exports: [
+        TasksComponent
+    ]
 })
 export class AppModule {}
