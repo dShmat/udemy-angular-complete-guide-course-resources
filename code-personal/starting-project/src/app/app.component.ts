@@ -14,11 +14,13 @@ import {TasksComponent} from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedName = 'Not selected';
+  selectedName?: string;
 
   onSelectUser(id: string) {
     console.log('Selected id: ' + id);
     const user = this.users.find(user => user.id === id)
-    this.selectedName = user ? user.name : 'Not selected';
+    this.selectedName = user ? user.name : undefined;
   }
+
+  protected readonly onoffline = onoffline;
 }
