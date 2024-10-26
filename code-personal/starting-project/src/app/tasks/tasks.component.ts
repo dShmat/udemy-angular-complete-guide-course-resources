@@ -1,11 +1,15 @@
 import {Component, Input} from '@angular/core';
 import {TaskComponent} from "./task/task.component";
+import {NewTaskComponent} from "./new-task/new-task.component";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-tasks',
   standalone: true,
   imports: [
-    TaskComponent
+    TaskComponent,
+    NewTaskComponent,
+    NgIf
   ],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.scss'
@@ -13,6 +17,7 @@ import {TaskComponent} from "./task/task.component";
 export class TasksComponent {
   @Input({required: true}) userId!: string;
   @Input({required: true}) selectedName!: string;
+  isEditMode = false;
 
   tasks = [
     {
@@ -46,5 +51,9 @@ export class TasksComponent {
 
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter((task) => task.id !== id);
+  }
+
+  onAddTask(){
+    this.isEditMode = !this.isEditMode;
   }
 }
