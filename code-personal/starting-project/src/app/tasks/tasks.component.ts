@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {TaskComponent} from "./task/task.component";
 import {NewTaskComponent} from "./new-task/new-task.component";
 import {NgIf} from "@angular/common";
+import {NewTaskData} from "./task/task.model";
 
 @Component({
   selector: 'app-tasks',
@@ -17,7 +18,7 @@ import {NgIf} from "@angular/common";
 export class TasksComponent {
   @Input({required: true}) userId!: string;
   @Input({required: true}) selectedName!: string;
-  isEditMode = false;
+  isAddingTask = false;
 
   tasks = [
     {
@@ -53,7 +54,22 @@ export class TasksComponent {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  onAddTask(){
-    this.isEditMode = !this.isEditMode;
+  onStartAddTask(){
+    this.isAddingTask = true;
+  }
+
+  onCanselAddTask() {
+    this.isAddingTask = false;
+  }
+
+  onAddTask(task: NewTaskData) {
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
+      title: task.title,
+      summary: task.summary,
+      dueDate: task.date,
+      userId: this.userId
+    })
+    this.onCanselAddTask();
   }
 }

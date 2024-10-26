@@ -1,12 +1,16 @@
+@if (isAddingTask) {
+  <app-new-task
+    (add)="onAddTask($event)"
+    (cancel)="onCanselAddTask()"/>
+}
+
 <section id="tasks">
   <header>
     <h2>{{ selectedName }}'s Tasks</h2>
     <menu>
-      <button (click)="onAddTask()">Add Task</button>
+      <button (click)="onStartAddTask()">Add Task</button>
     </menu>
   </header>
-
-  <app-new-task *ngIf="isEditMode"/>
 
   <ul>
     @for (task of selectedUserTasks; track task.id) {
