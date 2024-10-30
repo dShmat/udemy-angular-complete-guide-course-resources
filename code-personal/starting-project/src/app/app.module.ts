@@ -1,17 +1,15 @@
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
-import {RouterOutlet} from "@angular/router";
 import {HeaderComponent} from "./header/header.component";
-import {UserComponent} from "./user/user.component";
-import {TasksComponent} from "./tasks/tasks.component";
 import {BrowserModule} from "@angular/platform-browser";
+import {SharedModule} from "./shared/shared.module";
+import {TasksModule} from "./tasks/tasks.module";
+import {UserComponent} from "./user/user.component";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, HeaderComponent, UserComponent],
   bootstrap: [AppComponent],
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent, BrowserModule],
+  imports: [BrowserModule, SharedModule, TasksModule],
 })
 export class AppModule {
 }
